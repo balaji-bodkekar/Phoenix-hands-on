@@ -32,3 +32,23 @@ jobs:
         with:
           name: demo-app
           path: target/*.jar
+
+  run-app:
+    runs-on: ubuntu-lastest
+    needs: build
+    
+    steps:
+      - name: Download JAR artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-jar
+        
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+          
+      - name: Run application
+        run: |
+          echo java -jar *.jar
