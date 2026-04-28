@@ -41,7 +41,7 @@ jobs:
       - name: Download JAR artifact
         uses: actions/download-artifact@v4
         with:
-          name: app-jar
+          name: demo-app
         
       - name: Set up JDK
         uses: actions/setup-java@v4
